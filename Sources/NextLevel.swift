@@ -654,6 +654,13 @@ extension NextLevel {
         }
     }
     
+    public func canset(preset:AVCaptureSession.Preset) -> Bool {
+        
+        guard let validSession = self._captureSession else { return false }
+        
+        return validSession.canSetSessionPreset(preset)
+    }
+    
     @available(iOS 11.0, *)
     internal func setupARSession() {
         #if USE_ARKIT
