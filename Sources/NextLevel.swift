@@ -638,6 +638,14 @@ extension NextLevel {
         #endif
     }
     
+    //Srinivas Prabhu Added
+    public func canset(preset:AVCaptureSession.Preset) -> Bool {
+        
+        guard let validSession = self._captureSession else { return false }
+        
+        return validSession.canSetSessionPreset(preset)
+    }
+    
     internal func setupAVSession() {
         // Note: use nextLevelSessionDidStart to ensure a device and session are available for configuration or format changes
         self.executeClosureAsyncOnSessionQueueIfNecessary {
